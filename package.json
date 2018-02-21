@@ -18,7 +18,7 @@
     "hexo-renderer-stylus": "0.3.3",
     "hexo-server": "0.3.1",
     "jsdoc": "3.5.5",
-    "shelljs": "^0.8.1",
+    "shelljs": "0.8.1",
     "showdown": "1.8.6",
     "underscore": "1.8.3"
   },

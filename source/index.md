@@ -5,7 +5,7 @@ title: Introducing the Testing Theme
 <!--  XXX: note that this content is somewhat duplicated on the guide, and should be updated in parallel -->
 <h2 id="what-is-a-test-theme">What is a test theme?</h2>
 
-A test theme is used in order to test the various components which might appear in an actual documentation repository.
+A test theme is used in order to test the various components which might appear in an actual documentation repository including such nuances like **bold** and _italicized_ text! Check the links on the left for more examples!
 
 - Aenean quis commodo sem, maximus molestie turpis. Nulla ut nulla.
 

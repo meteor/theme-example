@@ -17,6 +17,7 @@ versions:
 sidebar_categories:
   null:
     - index
+    - styles
     - syntax-highlighting
   Sub1:
     - sub1/doc

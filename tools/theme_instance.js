@@ -130,6 +130,7 @@ class ThemeInstance {
     const hexoCmd = `npx hexo ${cmd} --config "${relativeConfigs.join(",")}"`;
 
     shelljs.cd(this._parentDir);
+    shelljs.env.FORCE_COLOR = true;
     return shelljs.exec(hexoCmd);
   }
 

@@ -23,9 +23,9 @@
     "underscore": "1.8.3"
   },
   "scripts": {
-    "build": "node ./tools/generate.js",
+    "build": "node ./tools/cmd/generate.js",
     "test": "echo \"No tests here.\" && exit 1",
-    "start": "node ./tools/server.js"
+    "start": "node ./tools/cmd/server.js"
   },
   "dependencies": {}
 }

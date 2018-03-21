@@ -17,13 +17,13 @@
     "hexo-renderer-marked": "0.3.2",
     "hexo-renderer-stylus": "0.3.3",
     "hexo-server": "0.3.1",
-    "js-yaml": "^3.11.0",
+    "js-yaml": "3.11.0",
     "jsdoc": "3.5.5",
     "shelljs": "0.8.1",
     "showdown": "1.8.6",
-    "tmp-promise": "^1.0.4",
+    "tmp-promise": "1.0.4",
     "underscore": "1.8.3",
-    "yargs": "^11.0.0"
+    "yargs": "11.0.0"
   },
   "scripts": {
     "build": "node ./tools/cmd/generate.js",

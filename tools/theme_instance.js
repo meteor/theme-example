@@ -92,9 +92,19 @@ class ThemeInstance {
       "The _config.yml couldn't be found at: " + configPath);
 
     if (themeDirectory) {
-      this.configPathTheme = await writeThemeOverrideConfig(
-        pathRelative(this._parentDir, themeDirectory));
-      console.log("THEME PATH", this.configPathTheme);
+      const relativeThemeDirectory =
+        pathRelative(this._parentDir, themeDirectory);
+
+      assert.strictEqual(relativeThemeDirectory.startsWith(".."), false,
+        "Currently, Hexo cannot reach outside its root to find the theme.  " +
+        "Instead, please create a symlink from your local theme checkout to " +
+        "`themes/meteor` and invoke this script with " +
+        "`--theme-dir themes/meteor`.  A future version of this script, " +
+        "possibly thanks to work from _you_ (*nudge, nudge*), might create " +
+        "this symlink for you!");
+
+      this.configPathTheme =
+        await writeThemeOverrideConfig(relativeThemeDirectory);
     }
 
     this.configPath = configPath;

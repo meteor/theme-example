@@ -27,20 +27,20 @@ There are two commands, and they use the same arguments which are explained belo
 
 **For the configuration, use your local checkout which is alongside this theme in `../apollo-hexo-config` along with a local copy of the theme which is alongside in `../meteor-theme-hexo`.
 ```
-npm run server --  --config-dir ../apollo-hexo-config --theme-dir ../meteor-theme-hexo
+npm start --  --config-dir ../apollo-hexo-config --theme-dir ../meteor-theme-hexo
 ```
 
 **Use the Apollo config from npm, but the local checkout of the theme.
 ```
-npm run server --  --config-pkg apollo-hexo-config --theme-dir ../meteor-theme-hexo
+npm start --  --config-pkg apollo-hexo-config --theme-dir ../meteor-theme-hexo
 ```
 
 **Use the (published) Apollo config and the theme, both via npm install.
 ```
-npm run server -- --config-pkg apollo-hexo-config
+npm start -- --config-pkg apollo-hexo-config
 ```
 
 **Use the (published) Meteor config and the theme, both via npm install.
 ```
-npm run server --  --config-pkg meteor-hexo-config
+npm start --  --config-pkg meteor-hexo-config
 ```

@@ -55,23 +55,9 @@ function getConfigFromArguments(cmd = "generate") {
   return options;
 }
 
-
-async function writeThemeOverrideConfig(themeDir) {
-  const tempFileHandle = await tmp.file({ postfix: ".yml" });
-
-  // The theme must be relative to the `theme` directory where it _would_ have
-  // lived, even if it won't be living there.  Therefore, we add `..` onto the
-  // front of whatever we already have (which is already relative).
-  await writeFile(tempFileHandle.fd, yaml.safeDump({
-    theme: "../" + themeDir,
-  }));
-
-  return tempFileHandle.path;
-}
-
 module.exports = {
   defaultConfigNpm,
   getConfigFromArguments,
   themeName,
-  writeThemeOverrideConfig
+
 };

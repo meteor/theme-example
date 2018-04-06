@@ -15,7 +15,6 @@ const { existsSync } = require("fs");
 const assert = require("assert");
 const {
   themeName,
-  writeThemeOverrideConfig,
 } = require("./utils.js");
 
 class ThemeInstance {
@@ -60,6 +59,15 @@ class ThemeInstance {
         "An error occurred installing npm packages for the 'theme-example'.");
     }
 
+    function linkNpmPackages (...dirs) {
+      const toInstall = dirs.join(" ");
+      const code = shelljs.exec(
+        `npm install --link ${skipPackageJsons} ${toInstall}`).code;
+
+      assert.strictEqual(code, 0,
+        "An error occurred installing npm packages for the 'theme-example'.");
+    }
+
     const {
       configPackage,
       configDirectory,
@@ -79,6 +87,7 @@ class ThemeInstance {
       installNpmPackages(themeName);
       configPath = require(pathResolve(this._parentDir, configDirectory));
     } else if (configDirectory) {
+      linkNpmPackages(themeDirectory);
       configPath = require(pathResolve(this._parentDir, configDirectory));
     }
 
@@ -90,22 +99,6 @@ class ThemeInstance {
     assert.ok(
       existsSync(pathResolve(".", configPath)),
       "The _config.yml couldn't be found at: " + configPath);
-
-    if (themeDirectory) {
-      const relativeThemeDirectory =
-        pathRelative(this._parentDir, themeDirectory);
-
-      assert.strictEqual(relativeThemeDirectory.startsWith(".."), false,
-        "Currently, Hexo cannot reach outside its root to find the theme.  " +
-        "Instead, please create a symlink from your local theme checkout to " +
-        "`themes/meteor` and invoke this script with " +
-        "`--theme-dir themes/meteor`.  A future version of this script, " +
-        "possibly thanks to work from _you_ (*nudge, nudge*), might create " +
-        "this symlink for you!");
-
-      this.configPathTheme =
-        await writeThemeOverrideConfig(relativeThemeDirectory);
-    }
 
     this.configPath = configPath;
   }

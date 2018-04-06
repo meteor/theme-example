@@ -16,8 +16,6 @@ echo "Total number of arguments is $#"
 
 ## GraphQL
 
-> Not functional. See [this issue](https://github.com/isagalaev/highlight.js/issues/1471).
-
 ```graphql
 query HeroForEpisode($ep: Episode!) {
   hero(episode: $ep) {
@@ -34,7 +32,7 @@ query HeroForEpisode($ep: Episode!) {
 
 ## JSON
 
-```json
+```json line=5-11,17-25
 {
   "tweet": {
     "created_at": "Thu Apr 06 15:24:15 +0000 2017",
@@ -69,7 +67,7 @@ query HeroForEpisode($ep: Episode!) {
 
 ## JSX
 
-```jsx
+```jsx line=10-12
 const Button = props => {
   const { kind, ...other } = props;
   const className = kind === "primary" ? "PrimaryButton" : "SecondaryButton";

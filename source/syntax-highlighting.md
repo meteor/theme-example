@@ -106,9 +106,9 @@ const App = () => {
 }
 ```
 
-## SCSS
+## Less
 
-```scss
+```less
 .input {
   border-radius: 3px;
   border: 4px solid #ddd;

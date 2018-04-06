@@ -21,22 +21,26 @@ There are two commands, and they use the same arguments which are explained belo
 * `--config-dir <path>`
   * Where `<path>` is a local checkout of the configuration.
   * Either this option, or the previous option is required.
-* `--theme-dir <path>`
-  * While it would be great if this worked when pointed anywhere on the system, a Hexo limitation prevents it from reaching outside the root of this repository, so you'll need to symlink your local Git checkout into `themes/meteor` and then run this as `--theme-dir themes/meteor`.
+* `--theme-dir <path>` (defaults to `meteor-theme-hexo` installed from npm)
 
 ## Examples
 
-**For the configuration, use your local checkout which is alongside this theme in `../apollo-hexo-config` along with a local copy of the theme which you've symlinked into `themes/meteor`.**
+**For the configuration, use your local checkout which is alongside this theme in `../apollo-hexo-config` along with a local copy of the theme which is alongside in `../meteor-theme-hexo`.
 ```
-npm run server --  --config-dir ../apollo-hexo-config --theme-dir themes/meteor
-```
-
-**Use the locally symlinked version of the theme you've put in `themes/meteor`.**
-```
-npm run server --  --config-pkg apollo-hexo-config --theme-dir themes/meteor
+npm run server --  --config-dir ../apollo-hexo-config --theme-dir ../meteor-theme-hexo
 ```
 
-**Use the Meteor Hexo configuration**
+**Use the Apollo config from npm, but the local checkout of the theme.
+```
+npm run server --  --config-pkg apollo-hexo-config --theme-dir ../meteor-theme-hexo
+```
+
+**Use the (published) Apollo config and the theme, both via npm install.
+```
+npm run server -- --config-pkg apollo-hexo-config
+```
+
+**Use the (published) Meteor config and the theme, both via npm install.
 ```
 npm run server --  --config-pkg meteor-hexo-config
 ```

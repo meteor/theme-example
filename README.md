@@ -25,14 +25,14 @@ There are two commands, and they use the same arguments which are explained belo
 
 ## Examples
 
-**For the configuration, use your local checkout which is alongside this theme in `../apollo-hexo-config` along with a local copy of the theme which is alongside in `../hexo-theme-meteor`.
+**For the configuration, use your local checkout which is alongside this theme in `../apollo-hexo-config` along with a local copy of the theme which is alongside in `../meteor-theme-hexo`.
 ```
-npm start --  --config-dir ../apollo-hexo-config --theme-dir ../hexo-theme-meteor
+npm start --  --config-dir ../apollo-hexo-config --theme-dir ../meteor-theme-hexo
 ```
 
 **Use the Apollo config from npm, but the local checkout of the theme.
 ```
-npm start --  --config-pkg apollo-hexo-config --theme-dir ../hexo-theme-meteor
+npm start --  --config-pkg apollo-hexo-config --theme-dir ../meteor-theme-hexo
 ```
 
 **Use the (published) Apollo config and the theme, both via npm install.

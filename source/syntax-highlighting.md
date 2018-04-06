@@ -16,8 +16,6 @@ echo "Total number of arguments is $#"
 
 ## GraphQL
 
-> Not functional. See [this issue](https://github.com/isagalaev/highlight.js/issues/1471).
-
 ```graphql
 query HeroForEpisode($ep: Episode!) {
   hero(episode: $ep) {

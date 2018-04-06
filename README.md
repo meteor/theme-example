@@ -1,6 +1,6 @@
 # Test Docs Deployment
 
-This docs deployment is a test [Hexo](https://github.com/hexojs/hexo) theme used by the [`hexo-theme-meteor` theme](https://github.com/meteor/hexo-theme-meteor) test deployment previews on Netlify.
+This docs deployment is a test [Hexo](https://github.com/hexojs/hexo) theme used by the [`meteor-theme-hexo` (npm) theme](https://github.com/meteor/meteor-theme-hexo) test deployment previews on Netlify.
 
 It can also be used to test theme changes locally!
 

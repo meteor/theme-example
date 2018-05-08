@@ -20,7 +20,7 @@
     "hexo-server": "0.3.1",
     "js-yaml": "3.11.0",
     "jsdoc": "3.5.5",
-    "shelljs": "0.8.1",
+    "shelljs": "0.8.2",
     "showdown": "1.8.6",
     "tmp-promise": "1.0.4",
     "underscore": "1.9.0",

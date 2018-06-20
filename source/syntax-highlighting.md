@@ -161,6 +161,23 @@ department.printMeeting();
 department.generateReports(); // error: method doesn't exist on declared abstract type
 ```
 
+## YAML
+
+```yaml
+version: 1
+versions:
+  - 1.2.3
+  - 3.2.1
+some other content:
+  what: this
+  yes: that
+over here:
+  we have another
+and this:
+  boom:
+    ok: let's do it.
+```
+
 ## XML
 
 ```xml

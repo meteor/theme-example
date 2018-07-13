@@ -22,7 +22,7 @@
     "jsdoc": "3.5.5",
     "shelljs": "0.8.2",
     "showdown": "1.8.6",
-    "tmp-promise": "1.0.4",
+    "tmp-promise": "1.0.5",
     "underscore": "1.9.1",
     "yargs": "11.0.0"
   },

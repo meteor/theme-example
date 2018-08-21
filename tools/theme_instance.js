@@ -4,6 +4,8 @@ const {
   join: pathJoin,
 } = require("path");
 
+const tmp = require("tmp-promise");
+
 // If this file is moved, this should be updated! That's why it's at the top.
 function getParentDirectory() {
   return pathResolve(__dirname, "..");
@@ -50,7 +52,7 @@ class ThemeInstance {
     // the use of any other `npm install` commands after this will cause
     // these two packages to be removed!
 
-    function installNpmPackages (...packages) {
+    async function installNpmPackages (...packages) {
       const toInstall = packages.join(" ");
       const code = shelljs.exec(
         `npm install ${skipPackageJsons} ${toInstall}`).code;
@@ -59,13 +61,36 @@ class ThemeInstance {
         "An error occurred installing npm packages for the 'theme-example'.");
     }
 
-    function linkNpmPackages (...dirs) {
-      const toInstall = dirs.join(" ");
-      const code = shelljs.exec(
-        `npm install --link ${skipPackageJsons} ${toInstall}`).code;
+    async function packAndInstallNpmPackages (...packages) {
+      const originalDirectory = process.cwd();
 
-      assert.strictEqual(code, 0,
-        "An error occurred installing npm packages for the 'theme-example'.");
+      function shellExecPromise(...args) {
+        return new Promise((resolve, reject) =>
+          shelljs.exec(...args, function (code, stdout, stderr) {
+            if (!stderr && code === 0) {
+              resolve(stdout.trim());
+            } else {
+              reject({code, stderr});
+            }
+          }));
+      }
+
+      for (const pkg of packages) {
+        const tmpHandle = await tmp.dir();
+        shelljs.cd(tmpHandle.path);
+
+        return await shellExecPromise(`npm --silent pack ${pkg}`)
+          .then(tgz => {
+            const pathTgz = pathJoin(tmpHandle.path, tgz);
+            shelljs.cd(originalDirectory);
+            const code = shelljs.exec(
+              `npm install ${skipPackageJsons} ${pathTgz}`).code;
+            assert.strictEqual(code, 0);
+          }).catch(err => {
+            console.error(err);
+            throw new Error("An error occurred installing npm packages for the 'theme-example'.");
+          });
+      }
     }
 
     const {
@@ -78,16 +103,16 @@ class ThemeInstance {
 
     let configPath;
     if (configPackage && !configDirectory && !themeDirectory) {
-      installNpmPackages(configPackage, themeName);
+      await installNpmPackages(configPackage, themeName);
       configPath = defaultConfigYml(pathJoin("node_modules", configPackage));
     } else if (configPackage && !configDirectory) {
-      installNpmPackages(configPackage);
+      await installNpmPackages(configPackage);
       configPath = defaultConfigYml(pathJoin("node_modules", configPackage));
     } else if (configDirectory && !themeDirectory) {
-      installNpmPackages(themeName);
+      await installNpmPackages(themeName);
       configPath = require(pathResolve(this._parentDir, configDirectory));
     } else if (configDirectory) {
-      linkNpmPackages(themeDirectory);
+      await packAndInstallNpmPackages(themeDirectory);
       configPath = require(pathResolve(this._parentDir, configDirectory));
     }
 

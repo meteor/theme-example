@@ -4,7 +4,6 @@ const {
   join: pathJoin,
 } = require("path");
 
-const tmp = require("tmp-promise");
 const yaml = require("js-yaml");
 
 const defaultConfigNpm = "meteor-hexo-config";

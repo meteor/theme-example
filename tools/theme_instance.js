@@ -21,7 +21,11 @@ class ThemeInstance {
   constructor(options = {}) {
     console.log("Preparing to use:");
     console.log("  configPackage:", options.configPackage);
+    options.configDirectory =
+      options.configDirectory && pathResolve(options.configDirectory);
     console.log("  configDirectory:", options.configDirectory);
+    options.themeDirectory =
+      options.themeDirectory && pathResolve(options.themeDirectory);
     console.log("  themeDirectory:", options.themeDirectory);
     this.options = options;
   }

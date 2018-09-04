@@ -8,7 +8,7 @@
   "devDependencies": {
     "emotion": "9.2.8",
     "emotion-server": "9.2.8",
-    "handlebars": "4.0.11",
+    "handlebars": "4.0.12",
     "hexo": "3.7.1",
     "hexo-browsersync": "0.3.0",
     "hexo-prism-plus": "1.0.0",

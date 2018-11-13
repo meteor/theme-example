@@ -22,7 +22,7 @@
     "react": "16.6.3",
     "react-dom": "16.6.3",
     "react-emotion": "9.2.8",
-    "shelljs": "0.8.2",
+    "shelljs": "0.8.3",
     "showdown": "1.9.0",
     "tmp-promise": "1.0.5",
     "underscore": "1.9.1",

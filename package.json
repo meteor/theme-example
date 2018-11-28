@@ -6,8 +6,8 @@
     "version": "3.7.1"
   },
   "devDependencies": {
-    "emotion": "9.2.8",
-    "emotion-server": "9.2.8",
+    "emotion": "10.0.0",
+    "emotion-server": "10.0.0",
     "handlebars": "4.0.12",
     "hexo": "3.8.0",
     "hexo-browsersync": "0.3.0",
@@ -21,7 +21,7 @@
     "jsdoc": "3.5.5",
     "react": "16.6.3",
     "react-dom": "16.6.3",
-    "react-emotion": "9.2.8",
+    "react-emotion": "10.0.0",
     "shelljs": "0.8.3",
     "showdown": "1.9.0",
     "tmp-promise": "1.0.5",

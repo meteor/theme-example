@@ -17,7 +17,7 @@
     "hexo-renderer-marked": "0.3.2",
     "hexo-renderer-react-emotion": "1.0.5",
     "hexo-server": "0.3.3",
-    "js-yaml": "3.13.0",
+    "js-yaml": "3.13.1",
     "jsdoc": "3.5.5",
     "react": "16.8.6",
     "react-dom": "16.8.6",
